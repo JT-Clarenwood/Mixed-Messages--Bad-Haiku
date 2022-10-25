@@ -22,3 +22,17 @@ const haikuComponents = {
         'I wait for day\'s start'
     ]
 };
+
+// Function to select random line
+const selectLine = array => array[Math.floor(Math.random() * array.length)];
+
+// Function to join parts into one haiku
+const constructHaiku = components => {
+    const messageArray = [];
+    for (const part in components) {
+        messageArray.push(selectLine(components[part]));
+    }
+    return messageArray.join('\n');
+};
+
+console.log(constructHaiku(haikuComponents));
